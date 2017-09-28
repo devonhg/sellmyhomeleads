@@ -174,9 +174,11 @@
 .image-checkboxes label img {
   height: 100px;
   width: 100px;
+  box-shadow: 5px 5px 15px rgba(0,0,0,.5);
   transition-duration: 0.2s;
   transform-origin: 50% 50%;
   border-radius: 50px;
+  border: 2px solid white;
 }
 
 .image-checkboxes :checked + label {
