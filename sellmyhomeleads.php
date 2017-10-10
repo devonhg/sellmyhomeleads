@@ -4,7 +4,7 @@ if ( ! defined( 'WPINC' ) ) { die; }
  * Plugin Name:       Sell My Home Lead Capture
  * Plugin URI:        playfrey.tech
  * Description:       This plugin creates a shortcode that adds a form to the site, as well as a means of collecting leads. Using the shortcode "[sellmyhome_form]" to insert the form. 
- * Version:           v1.1.2
+ * Version:           v1.1.3
  * Author:            Devon Godfrey
  * Author URI:        http://playfrey.tech
  * License:           GPL-2.0+

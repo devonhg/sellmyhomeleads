@@ -219,8 +219,8 @@ function sellmyhome_form( $emails ){
 
 					<?php echo smh_generate_list( "tax_property_value_leads", "Property Value", "frm-propertyvalue" ); ?>
 					<hr>
-	                <input type="button" name="previous" class="previous action-button" value="Previous" />
-	                <!--<input type="button" name="next" class="next action-button" value="Next" />-->
+	                <!--<input type="button" name="previous" class="previous action-button" value="Previous" />
+	                <input type="button" name="next" class="next action-button" value="Next" />-->
 	            </fieldset>
 	            <fieldset id="fs-property-location">
 	            	<h2 id="location-title" class="fs-title">Where are you looking to buy?</h2>
@@ -229,20 +229,20 @@ function sellmyhome_form( $emails ){
 
 	            	</div>
 					<hr>
-	                <input type="button" name="previous" class="previous action-button" value="Previous" />
+	                <!--<input type="button" name="previous" class="previous action-button" value="Previous" />-->
 	                <input id="dhg-validate" type="button" name="next" class="next action-button" value="Next" disabled/>
 	            </fieldset>
 				<fieldset id="fs-addressmort">
 
 	                <hr>
-	                <input type="button" name="previous" class="previous action-button" value="Previous" />
+	                <!--<input type="button" name="previous" class="previous action-button" value="Previous" />-->
 	            </fieldset>            
 	            <fieldset id="fs-property">
 	            	<div id="fs-property-dyn">
 
 	            	</div>
 	                <hr>
-	                <input type="button" name="previous" class="previous action-button" value="Previous" />
+	                <!--<input type="button" name="previous" class="previous action-button" value="Previous" />-->
 	            </fieldset>
 	            <fieldset>
 	                <h2 class="fs-title">Contact Information</h2>
@@ -251,7 +251,7 @@ function sellmyhome_form( $emails ){
 	                <input class="required" type="text" name="phone" placeholder="Phone" />
 	                <hr>
 	                <input type="hidden" name="submitted" id="submitted" value="true" />
-	                <input type="button" name="previous" class="previous action-button" value="Previous" />
+	                <!--<input type="button" name="previous" class="previous action-button" value="Previous" />-->
 	                <input type="submit" name="submit" class="submit action-button" value="Submit" />
 	            </fieldset>
 	        </form>
