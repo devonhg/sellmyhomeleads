@@ -185,7 +185,7 @@ function sellmyhome_form( $emails ){
 			var mortage_content = "<?php echo $mortga_options; ?>";
 			var get_city = '<?php echo get_city(); ?>';
 
-			var prev_button = '<input type="button" name="previous" class="previous action-button" value="Previous" />';
+			var prev_button = '<!--<input type="button" name="previous" class="previous action-button" value="Previous" />-->';
 			var next_button = '<input type="button" name="next" class="next action-button" value="Next" />';
 
 			var buying = false; 
