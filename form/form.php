@@ -248,7 +248,7 @@ function sellmyhome_form( $emails ){
 	                <h2 class="fs-title">Contact Information</h2>
 	                <input class="required" type="text" name="full_name" placeholder="Full Name" />
 	                <input class="required" type="text" name="email" placeholder="Email" />
-	                <input class="required" type="text" name="phone" placeholder="Phone" />
+	                <input type="text" name="phone" placeholder="Phone ( Optional )" />
 	                <hr>
 	                <input type="hidden" name="submitted" id="submitted" value="true" />
 	                <!--<input type="button" name="previous" class="previous action-button" value="Previous" />-->
