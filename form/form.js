@@ -34,15 +34,12 @@ jQuery(document).ready(function($) {
 		var left, opacity, scale; //fieldset properties which we will animate
 		var animating; //flag to prevent quick multi-click glitches
 
-		//$(document).on("click", ".next", function(){
-		$(".next-nested").on("click", function(e){
+		$(document).on("click", ".next", function(){
 			if(animating) return false;
 			animating = true;
 			
-
-
-			current_fs = $(e.target).closest("fieldset");
-			next_fs = current_fs.next();
+			current_fs = $(this).parent();
+			next_fs = $(this).parent().next();
 			
 			//activate next step on progressbar using the index of next_fs
 			//$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
@@ -75,21 +72,13 @@ jQuery(document).ready(function($) {
 			});
 		});
 
-		
-		//$(document).on("click", ".next-nested", function(){
-		$(".next-nested").on("click", function(e){
-
+		$(document).on("click", ".next-nested", function(){
 			if(animating) return false;
 			animating = true;
-
-			console.log( e.target.closest("fieldset") );
-
-			//current_fs = $(this).closest("fieldset");
-			//next_fs = $(this).closest("fieldset").next();
-
-			current_fs = $(e.target).closest("fieldset");
-			next_fs = current_fs.next();
-
+			
+			current_fs = $(this).parent().parent();
+			next_fs = $(this).parent().parent().next();
+			
 			//activate next step on progressbar using the index of next_fs
 			//$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
 			
@@ -120,8 +109,6 @@ jQuery(document).ready(function($) {
 				easing: 'easeInOutBack'
 			});
 		});
-
-
 
 		$(document).on("click", ".previous", function(){
 			if(animating) return false;
@@ -218,22 +205,13 @@ jQuery(document).ready(function($) {
 
 });
 
-
 /*
 	Limit Checkboxes
 */
 	function smi_selectOnlyThis(id) {
-		//var _next_nested = document.getElementsByClassName("image-option");
-
-
-		//console.log(_next_nested.length);
 		for (var i = 1;i <= 2; i++){
 			document.getElementById("cb" + i).checked = false;
-			//document.getElementByClassName("next-nested")[]
-			//id.checked = false; 
-			//_next_nested[i].checked = false; 
 		}
-		//id.checked = true;
 		document.getElementById(id).checked = true;
 	}
 
@@ -255,6 +233,7 @@ jQuery(document).ready(function($) {
 		document.getElementById("fs-property").innerHTML = buying_content + '<hr>' + prev_button;
 		document.getElementById("location-title").innerHTML = "Where are you looking to buy?";
 		document.getElementById("fs-addressmort").innerHTML = mortage_content + "<hr>" + prev_button;
+		console.log( mortage_content );
 		//buying = true; 
 		var c = document.getElementById("fs-property-value").childNodes;
 		c[1].innerHTML = "Value of Property You're Buying";
