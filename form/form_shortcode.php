@@ -18,7 +18,7 @@
 
         ob_start(); 
         ?>
-        	<button class="form-nav-to"> <?php echo $a["text"] ?></button>
+        	<a href="#msform"><button class="form-nav-to"> <?php  echo $a["text"]  ?></button></a>
         <?php
         return ob_get_clean();
     }

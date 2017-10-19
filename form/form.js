@@ -14,8 +14,17 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
 jQuery(document).ready(function($) {
 
         $(".form-nav-to").click(function (){
+			/*if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+				$("html, body").animate({
+					scrollTop: 0
+				}, 600);
+				return false;
+			}
             $('html, body').animate({ scrollTop: $("#msform").offset().top - 50 }, 1000);
+            */
+            //document.querySelector('#msform').scrollIntoView({ behavior: 'smooth' });
         });
+		
 
 
 

@@ -157,7 +157,7 @@ function sellmyhome_form( $emails ){
 		</script>
 
 	    <!-- multistep form -->
-	        <form action="" method="POST" id="msform">
+	        <form action="" method="POST" id="msform" >
 	            <!-- progressbar -->
 	            <!--
 	            <ul id="progressbar">
