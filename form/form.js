@@ -12,6 +12,14 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
 
 
 jQuery(document).ready(function($) {
+
+        $(".form-nav-to").click(function (){
+            $('html, body').animate({ scrollTop: $("#msform").offset().top - 50 }, 1000);
+        });
+
+
+
+
 		$("#zip").on("keyup", function() {
 			$("#dhg-validate").prop("disabled", false);
 				if( $("#zip").val().length < 5) {
