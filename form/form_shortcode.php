@@ -13,12 +13,13 @@
 
     function sellmyhome_button_sc( $atts ){
         $a = shortcode_atts( array(
-            'text' => 'Get Started Today'
+            'text' => 'Get Started Today',
+            'href' => "#msform"
         ), $atts );
 
         ob_start(); 
         ?>
-        	<a href="#msform"><button class="form-nav-to"> <?php  echo $a["text"]  ?></button></a>
+        	<a href='<?php echo $a["href"] ?>'><button class="form-nav-to"> <?php  echo $a["text"]  ?></button></a>
         <?php
         return ob_get_clean();
     }
