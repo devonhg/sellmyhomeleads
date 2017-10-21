@@ -14,3 +14,8 @@
         //}
     }
     add_action( 'wp_enqueue_scripts', 'SELLMYHOME_plugin_scripts' );
+
+    function pft_form_set_content_type(){
+    	return "text/html";
+	}
+	add_filter( 'wp_mail_content_type','pft_form_set_content_type' );
