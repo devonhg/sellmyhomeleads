@@ -271,10 +271,10 @@ jQuery(document).ready(function($) {
 	}
 	//If Selling
 	function smi_isselling(){
-		document.getElementById("fs-property").innerHTML = selling_content + '<input type="button" name="previous" class="previous action-button" value="Previous" />';
+		document.getElementById("fs-property").innerHTML = selling_content + '<!--<input type="button" name="previous" class="previous action-button" value="Previous" />-->';
 		document.getElementById("location-title").innerHTML = "Where is your property located?";
 		//document.getElementById("fs-location-dyn").innerHTML = "<input placeholder='Address' type='text' id='address' name='address'/>";
-		document.getElementById("fs-addressmort").innerHTML = '<h2 class="fs-title">What street address?</h2>' + "<input class='required' placeholder='Address' type='text' id='address' name='address'/>" + "<hr>" + prev_button + '<input id="dhg-validate-2" type="button" name="next" class="next action-button" value="Next" disabled/>';
+		document.getElementById("fs-addressmort").innerHTML = '<h2 class="fs-title">What street address?</h2>' + "<input class='required form_address' placeholder='Address' type='text' id='address' name='address'/>" + "<hr>" + prev_button + '<input id="dhg-validate-2" type="button" name="next" class="next action-button" value="Next" disabled/>';
 		//document.getElementById("fs-mortgage").remove();
 		//buying = false; 
 		var c = document.getElementById("fs-property-value").childNodes;
