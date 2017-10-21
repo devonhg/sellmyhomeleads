@@ -9,9 +9,17 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
     }
 }
 
-
+//Disable Enter Key
+jQuery("#msform").keypress(function(e) {
+  //Enter key
+  if (e.which == 13) {
+    return false;
+  }
+});
 
 jQuery(document).ready(function($) {
+
+
 
         $(".form-nav-to").click(function (){
 			/*if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
