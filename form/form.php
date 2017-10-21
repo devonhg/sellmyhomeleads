@@ -29,7 +29,7 @@
 				if (strpos($term->name, ')') !== false){ $name = explode( ")", $term->name ); }
 				else{ $name = array( "", $term->name ); }
 				$name[1] = filter_var($name[1], FILTER_SANITIZE_STRING);
-				echo "<input class='next-nested' onclick='smi_selectOnlyThisProperty(this.id, this.parentNode.id);' id='". $id ."-box" . $counter . "' type='checkbox' name='" . $id . "' value='" . $term->slug . "' />";
+				echo "<input class='next-nested form_" . $slug . "' onclick='smi_selectOnlyThisProperty(this.id, this.parentNode.id);' id='". $id ."-box" . $counter . "' type='checkbox' name='" . $id . "' value='" . $term->slug . "' />";
 				echo "<label name='" . $id . "' value='" . $term->slug . "' for='". $id ."-box" . $counter . "'>" . $name[1] . "</label>";
 				$counter += 1; 
 			}
@@ -41,16 +41,16 @@
 			//$o .= '<h2 class="fs-title">'. $title . '</h2>';
 			$o .= '<div class="city-wrapper">';
 			//$o .= '<label for="zip">Zip:</label>';
-			$o .= '<input class="required" placeholder="Zip" type="text" id="zip" name="zip"/>';
+			$o .= '<input class="required form_zip" placeholder="Zip" type="text" id="zip" name="zip"/>';
 			//$o .= '<label for="city">City:</label>';
-			$o .= '<div id="city_wrap"><input class="required" placeholder="City" type="text" id="city" name="city"/></div>';
+			$o .= '<div id="city_wrap"><input class="required form_city" placeholder="City" type="text" id="city" name="city"/></div>';
 			//$o .= '<label for="state">State:</label>';
-			$o .= '<input class="required" placeholder="State" type="text" id="state" name="state"/>';
+			$o .= '<input class="required form_state" placeholder="State" type="text" id="state" name="state"/>';
 			$o .= "</div>";
 			$o .= "<p></p>";
 			return $o;
 		}
-function sellmyhome_form( $emails ){
+function sellmyhome_form( $emails, $social ){
 	//Validation
 	$postTitleError = '';
 	if ( isset( $_POST['submitted'] ) ) {
@@ -89,7 +89,25 @@ function sellmyhome_form( $emails ){
 				if ( $emails !== '' ){ 
 					$emails_boom = explode(",", $emails);
 					wp_mail( $emails_boom, $email_subject, $email_body  );
+
 				}
+				//Send customer an email
+
+				$headers = apache_request_headers();
+				$url = $headers["Host"];
+				ob_start();
+				?>
+					<h3>Thank you for your interest!</h3>
+					<p>Hi! This is an automatic email from the team at <a href="<?php echo $url ?>"> ><?php echo $url; ?></a>. We're 
+					just shooting you an email to let you know that we are on the case!</p>
+					
+					<?php if( $social != "" ){ ?>
+						<p>We'll be in touch soon, in the meantime feel free to <a href="<?php echo $social ?>">follow us on social media!</a></p>
+					<?php } ?>
+				<?
+
+				$email_body = ob_get_clean();;
+				wp_mail( $_POST["email"], "Thank You!", $email_body  );
 			//Create the lead
 				$post_information = array(
 					'post_title' => str_replace("_", " ", $email_subject),
@@ -210,9 +228,9 @@ function sellmyhome_form( $emails ){
 	            </fieldset>
 	            <fieldset>
 	                <h2 class="fs-title">Contact Information</h2>
-	                <input class="required" type="text" name="full_name" placeholder="Full Name" />
-	                <input class="required" type="text" name="email" placeholder="Email" />
-	                <input type="text" name="phone" placeholder="Phone ( Optional )" />
+	                <input class="required form_full_name" type="text" name="full_name" placeholder="Full Name" />
+	                <input class="required form_email" type="text" name="email" placeholder="Email" />
+	                <input class="form_phone" type="text" name="phone" placeholder="Phone ( Optional )" />
 	                <hr>
 	                <input type="hidden" name="submitted" id="submitted" value="true" />
 	                <!--<input type="button" name="previous" class="previous action-button" value="Previous" />-->

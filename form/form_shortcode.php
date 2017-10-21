@@ -5,9 +5,10 @@
         $a = shortcode_atts( array(
             'emails' => '',
             'background-color' => '',
-            'background-opacity' => ''
+            'background-opacity' => '',
+            'social' => ""
         ), $atts );
-        sellmyhome_form( $a['emails'] ); 
+        sellmyhome_form( $a['emails'], $a['social'] ); 
     }
     add_shortcode( 'sellmyhome_form', 'sellmyhome_form_sc' );
 
