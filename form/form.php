@@ -212,7 +212,7 @@ function sellmyhome_form( $emails, $social ){
 	            	</div>
 					<hr>
 	                <!--<input type="button" name="previous" class="previous action-button" value="Previous" />-->
-	                <input id="dhg-validate" type="button" name="next" class="next action-button" value="Next" disabled/>
+	                <input data-for="where_to" id="dhg-validate" type="button" name="next" class="next action-button" value="Next" disabled/>
 	            </fieldset>
 				<fieldset id="fs-addressmort">
 

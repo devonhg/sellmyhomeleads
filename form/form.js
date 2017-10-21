@@ -21,22 +21,6 @@ jQuery(document).ready(function($) {
 
 
 
-        $(".form-nav-to").click(function (){
-			/*if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-				$("html, body").animate({
-					scrollTop: 0
-				}, 600);
-				return false;
-			}
-            $('html, body').animate({ scrollTop: $("#msform").offset().top - 50 }, 1000);
-            */
-            //document.querySelector('#msform').scrollIntoView({ behavior: 'smooth' });
-        });
-		
-
-
-
-
 		$("#zip").on("keyup", function() {
 			$("#dhg-validate").prop("disabled", false);
 				if( $("#zip").val().length < 5) {
@@ -258,7 +242,6 @@ jQuery(document).ready(function($) {
 		document.getElementById("fs-property").innerHTML = buying_content + '<hr>' + prev_button;
 		document.getElementById("location-title").innerHTML = "Where are you looking to buy?";
 		document.getElementById("fs-addressmort").innerHTML = mortage_content + "<hr>" + prev_button;
-		console.log( mortage_content );
 		//buying = true; 
 		var c = document.getElementById("fs-property-value").childNodes;
 		c[1].innerHTML = "Value of Property You're Buying";
@@ -282,7 +265,7 @@ jQuery(document).ready(function($) {
 		document.getElementById("fs-property").innerHTML = selling_content + '<!--<input type="button" name="previous" class="previous action-button" value="Previous" />-->';
 		document.getElementById("location-title").innerHTML = "Where is your property located?";
 		//document.getElementById("fs-location-dyn").innerHTML = "<input placeholder='Address' type='text' id='address' name='address'/>";
-		document.getElementById("fs-addressmort").innerHTML = '<h2 class="fs-title">What street address?</h2>' + "<input class='required form_address' placeholder='Address' type='text' id='address' name='address'/>" + "<hr>" + prev_button + '<input id="dhg-validate-2" type="button" name="next" class="next action-button" value="Next" disabled/>';
+		document.getElementById("fs-addressmort").innerHTML = '<h2 class="fs-title">What street address?</h2>' + "<input class='required form_address' placeholder='Address' type='text' id='address' name='address'/>" + "<hr>" + prev_button + '<input data-for="address" id="dhg-validate-2" type="button" name="next" class="next action-button" value="Next" disabled/>';
 		//document.getElementById("fs-mortgage").remove();
 		//buying = false; 
 		var c = document.getElementById("fs-property-value").childNodes;
