@@ -190,9 +190,9 @@ function sellmyhome_form( $emails, $social ){
 	            <fieldset id="fs-buysell">
 	                <h2 class="fs-title">Are you buying or selling?</h2>
 	                <div class="image-checkboxes">
-		                <input class="next-nested" value="buy" name="buysell" onclick="smi_selectOnlyThis(this.id);smi_isbuying();" type="checkbox" id="cb1" /><label for="cb1"><img src="<?php echo $glb_smh_pluginuri.'/images/buy_home.png' ?>" /><br>Buying</label>
-		                <input class="next-nested" value="sell" name="buysell" onclick="smi_selectOnlyThis(this.id);smi_isselling();" type="checkbox" id="cb2" /><label for="cb2"><img src="<?php echo $glb_smh_pluginuri.'/images/sell_home.png' ?>" /><br>Selling</label>
-		                <input class="next-nested" value="both" name="buysell" onclick="smi_selectOnlyThis(this.id);smi_isselling();" type="checkbox" id="cb3" /><label for="cb3"><img src="<?php echo $glb_smh_pluginuri.'/images/both_home.png' ?>" /><br>Both</label>		            
+		                <input class="next-nested" data-for="buysell" value="buy" name="buysell" onclick="smi_selectOnlyThis(this.id);smi_isbuying();" type="checkbox" id="cb1" /><label for="cb1"><img src="<?php echo $glb_smh_pluginuri.'/images/buy_home.png' ?>" /><br>Buying</label>
+		                <input class="next-nested" data-for="buysell" value="sell" name="buysell" onclick="smi_selectOnlyThis(this.id);smi_isselling();" type="checkbox" id="cb2" /><label for="cb2"><img src="<?php echo $glb_smh_pluginuri.'/images/sell_home.png' ?>" /><br>Selling</label>
+		                <input class="next-nested" data-for="buysell" value="both" name="buysell" onclick="smi_selectOnlyThis(this.id);smi_isselling();" type="checkbox" id="cb3" /><label for="cb3"><img src="<?php echo $glb_smh_pluginuri.'/images/both_home.png' ?>" /><br>Both</label>		            
 		            </div>
 	                <hr>
 	                <!--<input type="button" name="next" class="next action-button" value="Next" />-->
