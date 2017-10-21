@@ -29,7 +29,7 @@
 				if (strpos($term->name, ')') !== false){ $name = explode( ")", $term->name ); }
 				else{ $name = array( "", $term->name ); }
 				$name[1] = filter_var($name[1], FILTER_SANITIZE_STRING);
-				echo "<input class='next-nested form_" . $slug . "' onclick='smi_selectOnlyThisProperty(this.id, this.parentNode.id);' id='". $id ."-box" . $counter . "' type='checkbox' name='" . $id . "' value='" . $term->slug . "' />";
+				echo "<input data-for='" . $slug . "'class='next-nested form_" . $slug . "' onclick='smi_selectOnlyThisProperty(this.id, this.parentNode.id);' id='". $id ."-box" . $counter . "' type='checkbox' name='" . $id . "' value='" . $term->slug . "' />";
 				echo "<label name='" . $id . "' value='" . $term->slug . "' for='". $id ."-box" . $counter . "'>" . $name[1] . "</label>";
 				$counter += 1; 
 			}
@@ -41,9 +41,9 @@
 			//$o .= '<h2 class="fs-title">'. $title . '</h2>';
 			$o .= '<div class="city-wrapper">';
 			//$o .= '<label for="zip">Zip:</label>';
-			$o .= '<input class="required form_zip" placeholder="Zip" type="text" id="zip" name="zip"/>';
+			$o .= '<input data-for="zip" class="required form_zip" placeholder="Zip" type="text" id="zip" name="zip"/>';
 			//$o .= '<label for="city">City:</label>';
-			$o .= '<div id="city_wrap"><input class="required form_city" placeholder="City" type="text" id="city" name="city"/></div>';
+			$o .= '<div id="city_wrap"><input data-for="city" class="required form_city" placeholder="City" type="text" id="city" name="city"/></div>';
 			//$o .= '<label for="state">State:</label>';
 			$o .= '<input class="required form_state" placeholder="State" type="text" id="state" name="state"/>';
 			$o .= "</div>";
@@ -235,7 +235,7 @@ function sellmyhome_form( $emails, $social ){
 	                <hr>
 	                <input type="hidden" name="submitted" id="submitted" value="true" />
 	                <!--<input type="button" name="previous" class="previous action-button" value="Previous" />-->
-	                <input type="submit" name="submit" class="submit action-button" value="Submit" />
+	                <input data-for="submit" type="submit" name="submit" class="submit action-button" value="Submit" />
 
 	            </fieldset>
 	        </form>
