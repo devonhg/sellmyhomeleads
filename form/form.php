@@ -50,7 +50,7 @@
 			$o .= "<p></p>";
 			return $o;
 		}
-function sellmyhome_form( $emails, $social, $email_body, $submit_message ){
+function sellmyhome_form( $emails, $social, $cust_email_body, $submit_message ){
 	//Validation
 	$postTitleError = '';
 	if ( isset( $_POST['submitted'] ) ) {
@@ -91,14 +91,14 @@ function sellmyhome_form( $emails, $social, $email_body, $submit_message ){
 					wp_mail( $emails_boom, $email_subject, $email_body  );
 
 				}
-				//Send customer an email
+			//Send customer an email
 				 
 				$headers = apache_request_headers();
 				$url = $headers["Host"];
 				ob_start();
 				?>
 					<strong>Thank you for choosing <?php echo get_bloginfo("name"); ?></strong>
-					<p><?php echo $email_body; ?></p>
+					<p><?php echo $cust_email_body; ?></p>
 					
 				<?
 				if( $social != "" ){ ?>	
