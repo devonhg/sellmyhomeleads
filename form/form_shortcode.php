@@ -4,11 +4,11 @@
     function sellmyhome_form_sc( $atts ) {
         $a = shortcode_atts( array(
             'emails' => '',
-            'background-color' => '',
-            'background-opacity' => '',
-            'social' => ""
+            'social' => "",
+            'email_body' => "We have recieved your request and are working on matching you with a top local agent who can best meet your needs. The agent will be contacting you soon. If you have any questions, please reach out to us at help@sellmyhomemi.com and a team member will assist you.",
+            'submit_message' => "Thank you, we will be in touch shortly."
         ), $atts );
-        sellmyhome_form( $a['emails'], $a['social'] ); 
+        sellmyhome_form( $a['emails'], $a['social'], $a['email_body'], $a['submit_message'] ); 
     }
     add_shortcode( 'sellmyhome_form', 'sellmyhome_form_sc' );
 

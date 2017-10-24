@@ -17,10 +17,21 @@ jQuery("#msform").keypress(function(e) {
   }
 });
 
+function validateEmail(sEmail) {
+    var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    if (filter.test(sEmail)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}​
+
+
 jQuery(document).ready(function($) {
 
 
-
+		//Validation
 		$("#zip").on("keyup", function() {
 			$("#dhg-validate").prop("disabled", false);
 				if( $("#zip").val().length < 5) {
@@ -32,11 +43,29 @@ jQuery(document).ready(function($) {
 			$("#dhg-validate-2").prop("disabled", false);
 				if( $("#address").val().length < 5) {
 				$("#dhg-validate-2").prop("disabled", true);
-				console.log( $("#address").val().length );
 			}
 		});
 
+		/*
+		$("#useremail").on("keyup", function() {
+	        var sEmail = $('#useremail').val();
+	        if (validateEmail(sEmail)) {
+	            $("#dhg-validate-submit").prop("disabled", false); 
+	        }
+	        else {
+	            $("#dhg-validate-submit").prop("disabled", true); 
+	        }
+		});
 
+		$( "#msform" ).validate({
+		  rules: {
+		    useremail: {
+		      required: true,
+		      email: true
+		    }
+		  }
+		});
+*/
 
 		//jQuery time
 		var current_fs, next_fs, previous_fs; //fieldsets

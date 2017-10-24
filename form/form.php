@@ -50,7 +50,7 @@
 			$o .= "<p></p>";
 			return $o;
 		}
-function sellmyhome_form( $emails, $social ){
+function sellmyhome_form( $emails, $social, $email_body, $submit_message ){
 	//Validation
 	$postTitleError = '';
 	if ( isset( $_POST['submitted'] ) ) {
@@ -92,22 +92,22 @@ function sellmyhome_form( $emails, $social ){
 
 				}
 				//Send customer an email
-				if( $social != "" ){ 
-					$headers = apache_request_headers();
-					$url = $headers["Host"];
-					ob_start();
-					?>
-						<h3>Thank you for your interest!</h3>
-						<p>Hi! This is an automatic email from the team at <a href="<?php echo $url ?>"><?php echo $url; ?></a>. We're 
-						just shooting you an email to let you know that we are on the case!</p>
-						
-						
-							<p>We'll be in touch soon, in the meantime feel free to <a href="<?php echo $social ?>">follow us on social media!</a></p>
-					<?
+				 
+				$headers = apache_request_headers();
+				$url = $headers["Host"];
+				ob_start();
+				?>
+					<strong>Thank you for choosing <?php echo get_bloginfo("name"); ?></strong>
+					<p><?php echo $email_body; ?></p>
+					
+				<?
+				if( $social != "" ){ ?>	
+					<p>In the meantime feel free to <a href="<?php echo $social ?>">follow us on social media!</a></p>
+				<?php }
 
-					$email_body = ob_get_clean();;
-					wp_mail( $_POST["email"], "Thank You!", $email_body  );
-				}
+				$email_body = ob_get_clean();
+				wp_mail( $_POST["email"], "Thank You!", $email_body  );
+				
 			//Create the lead
 				$post_information = array(
 					'post_title' => str_replace("_", " ", $email_subject),
@@ -145,7 +145,7 @@ function sellmyhome_form( $emails, $social ){
 			?>
 				<div id="msform">
 					<fieldset>
-						<p>Thank you, we will be in touch shortly.</p>
+						<p><?php echo $submit_message; ?></p>
 					</fieldset>
 				</div>
 			<?php
@@ -229,13 +229,13 @@ function sellmyhome_form( $emails, $social ){
 	            <fieldset>
 	                <h2 class="fs-title">Contact Information</h2>
 	                <input class="required form_full_name" type="text" name="full_name" placeholder="Full Name" />
-	                <input class="required form_email" type="text" name="email" placeholder="Email" />
+	                <input id="useremail" class="required email form_email" type="text" name="email" placeholder="Email" />
 	                <input class="form_phone" type="text" name="phone" placeholder="Phone ( Optional )" />
 	                <sub style="color: green;">We do not sell your information to third parties.</sub>
 	                <hr>
 	                <input type="hidden" name="submitted" id="submitted" value="true" />
 	                <!--<input type="button" name="previous" class="previous action-button" value="Previous" />-->
-	                <input data-for="submit" type="submit" name="submit" class="submit action-button" value="Submit" />
+	                <input id="dhg-validate-submit" data-for="submit" type="submit" name="submit" class="submit action-button" value="Submit" />
 
 	            </fieldset>
 	        </form>
