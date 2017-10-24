@@ -17,17 +17,6 @@ jQuery("#msform").keypress(function(e) {
   }
 });
 
-function validateEmail(sEmail) {
-    var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-    if (filter.test(sEmail)) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}​
-
-
 jQuery(document).ready(function($) {
 
 
@@ -46,27 +35,6 @@ jQuery(document).ready(function($) {
 			}
 		});
 
-		/*
-		$("#useremail").on("keyup", function() {
-	        var sEmail = $('#useremail').val();
-	        if (validateEmail(sEmail)) {
-	            $("#dhg-validate-submit").prop("disabled", false); 
-	        }
-	        else {
-	            $("#dhg-validate-submit").prop("disabled", true); 
-	        }
-		});
-
-		$( "#msform" ).validate({
-		  rules: {
-		    useremail: {
-		      required: true,
-		      email: true
-		    }
-		  }
-		});
-*/
-
 		//jQuery time
 		var current_fs, next_fs, previous_fs; //fieldsets
 		var left, opacity, scale; //fieldset properties which we will animate
@@ -79,8 +47,6 @@ jQuery(document).ready(function($) {
 			current_fs = $(this).parent();
 			next_fs = $(this).parent().next();
 			
-			//activate next step on progressbar using the index of next_fs
-			//$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
 			
 			//show the next fieldset
 			next_fs.show(); 
@@ -117,9 +83,6 @@ jQuery(document).ready(function($) {
 			current_fs = $(this).parent().parent();
 			next_fs = $(this).parent().parent().next();
 			
-			//activate next step on progressbar using the index of next_fs
-			//$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-			
 			//show the next fieldset
 			next_fs.show(); 
 			//hide the current fieldset with style
@@ -155,9 +118,6 @@ jQuery(document).ready(function($) {
 			current_fs = $(this).parent();
 			previous_fs = $(this).parent().prev();
 			
-			//de-activate current step on progressbar
-			//$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-			
 			//show the previous fieldset
 			previous_fs.show(); 
 			//hide the current fieldset with style
@@ -182,12 +142,6 @@ jQuery(document).ready(function($) {
 				easing: 'easeInOutBack'
 			});
 		});
-
-		/*
-		$(".submit").click(function(){
-			return false;
-		})
-		*/
 
 		/*Zip and City Lookup*/
 		$(document).ready(function(){
@@ -271,32 +225,15 @@ jQuery(document).ready(function($) {
 		document.getElementById("fs-property").innerHTML = buying_content + '<hr>' + prev_button;
 		document.getElementById("location-title").innerHTML = "Where are you looking to buy?";
 		document.getElementById("fs-addressmort").innerHTML = mortage_content + "<hr>" + prev_button;
-		//buying = true; 
 		var c = document.getElementById("fs-property-value").childNodes;
 		c[1].innerHTML = "Value of Property You're Buying";
-
-		
-		//document.getElementByClassName("city-wrapper")[0].innerHTML = mortage_content;
-		//document.getElementById("fs-property").innerHTML = "";
-		/*
-		jQuery(document).ready(function($) {
-			if !($("#fs-mortgage").length){
-				$( "#fs-property" ).after( '<fieldset id="fs-mortgage">' + $mortga_options + '<hr><input type="button" name="previous" class="previous action-button" value="Previous" />' );
-			}
-		});
-		*/
-		//document.getElementById("fs-property-location").innerHTML = '<h2 id="location-title" class="fs-title">Where are you looking to buy?</h2>' + get_city + '<input type="button" name="previous" class="previous action-button" value="Previous" />'
-
 		
 	}
 	//If Selling
 	function smi_isselling(){
 		document.getElementById("fs-property").innerHTML = selling_content + '<!--<input type="button" name="previous" class="previous action-button" value="Previous" />-->';
 		document.getElementById("location-title").innerHTML = "Where is your property located?";
-		//document.getElementById("fs-location-dyn").innerHTML = "<input placeholder='Address' type='text' id='address' name='address'/>";
 		document.getElementById("fs-addressmort").innerHTML = '<h2 class="fs-title">What street address?</h2>' + "<input class='required form_address' placeholder='Address' type='text' id='address' name='address'/>" + "<hr>" + prev_button + '<input data-for="address" id="dhg-validate-2" type="button" name="next" class="next action-button" value="Next" disabled/>';
-		//document.getElementById("fs-mortgage").remove();
-		//buying = false; 
 		var c = document.getElementById("fs-property-value").childNodes;
 		c[1].innerHTML = "Value of Property You're Selling";
 	}

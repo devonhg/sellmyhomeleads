@@ -142,14 +142,14 @@ function sellmyhome_form( $emails, $social, $email_body, $submit_message ){
 					add_post_meta( $lead_post, "meta_leads_email_vkey", $_POST['email'] );
 				}
 			//Show notification message.
-			?>
-				<div id="msform">
-					<fieldset>
-						<p><?php echo $submit_message; ?></p>
-					</fieldset>
-				</div>
-			<?php
-			$posted = true; 
+				?>
+					<div id="msform">
+						<fieldset>
+							<p><?php echo $submit_message; ?></p>
+						</fieldset>
+					</div>
+				<?php
+				$posted = true; 
 		}
 	}else{
 		global $glb_smh_pluginuri;
@@ -161,31 +161,18 @@ function sellmyhome_form( $emails, $social, $email_body, $submit_message ){
 
 		<script>
 			//Declare content
-			var selling_content = "<?php echo $prop_types; ?>";
-			//selling_content += "<input placeholder='Address' type='text' id='address' name='address'/>";
-			
-			var buying_content = "";
-			buying_content += "<?php echo $purch_times; ?>";
-			//buying_content += "<?php /*echo $mortga_options;*/ ?>";
-			var mortage_content = "<?php echo $mortga_options; ?>";
-			var get_city = '<?php echo get_city(); ?>';
-			var prev_button = '<!--<input type="button" name="previous" class="previous action-button" value="Previous" />-->';
-			var next_button = '<input type="button" name="next" class="next action-button" value="Next" />';
-			var buying = false; 
+				var selling_content = "<?php echo $prop_types; ?>";
+				var buying_content = "";
+				buying_content += "<?php echo $purch_times; ?>";
+				var mortage_content = "<?php echo $mortga_options; ?>";
+				var get_city = '<?php echo get_city(); ?>';
+				var prev_button = '<!--<input type="button" name="previous" class="previous action-button" value="Previous" />-->';
+				var next_button = '<input type="button" name="next" class="next action-button" value="Next" />';
+				var buying = false; 
 		</script>
 
 	    <!-- multistep form -->
 	        <form action="" method="POST" id="msform" >
-	            <!-- progressbar -->
-	            <!--
-	            <ul id="progressbar">
-	                <li class="active">Your Needs</li>
-	                <li>Property Value</li>
-	                <li>Location</li>
-	                <li>Details</li>
-	                <li>Contact</li>
-	            </ul>
-	            -->
 	            <!-- fieldsets -->
 	            <fieldset id="fs-buysell">
 	                <h2 class="fs-title">Are you buying or selling?</h2>
@@ -195,14 +182,12 @@ function sellmyhome_form( $emails, $social, $email_body, $submit_message ){
 		                <input class="next-nested" data-for="buysell" value="both" name="buysell" onclick="smi_selectOnlyThis(this.id);smi_isselling();" type="checkbox" id="cb3" /><label for="cb3"><img src="<?php echo $glb_smh_pluginuri.'/images/both_home.png' ?>" /><br>Both</label>		            
 		            </div>
 	                <hr>
-	                <!--<input type="button" name="next" class="next action-button" value="Next" />-->
 	            </fieldset>
 	            <fieldset id="fs-property-value">
 
 					<?php echo smh_generate_list( "tax_property_value_leads", "Property Value", "frm-propertyvalue" ); ?>
 					<hr>
-	                <!--<input type="button" name="previous" class="previous action-button" value="Previous" />
-	                <input type="button" name="next" class="next action-button" value="Next" />-->
+
 	            </fieldset>
 	            <fieldset id="fs-property-location">
 	            	<h2 id="location-title" class="fs-title">Where are you looking to buy?</h2>
@@ -211,20 +196,17 @@ function sellmyhome_form( $emails, $social, $email_body, $submit_message ){
 
 	            	</div>
 					<hr>
-	                <!--<input type="button" name="previous" class="previous action-button" value="Previous" />-->
 	                <input data-for="where_to" id="dhg-validate" type="button" name="next" class="next action-button" value="Next" disabled/>
 	            </fieldset>
 				<fieldset id="fs-addressmort">
 
 	                <hr>
-	                <!--<input type="button" name="previous" class="previous action-button" value="Previous" />-->
 	            </fieldset>            
 	            <fieldset id="fs-property">
 	            	<div id="fs-property-dyn">
 
 	            	</div>
 	                <hr>
-	                <!--<input type="button" name="previous" class="previous action-button" value="Previous" />-->
 	            </fieldset>
 	            <fieldset>
 	                <h2 class="fs-title">Contact Information</h2>
@@ -234,7 +216,6 @@ function sellmyhome_form( $emails, $social, $email_body, $submit_message ){
 	                <sub style="color: green;">We do not sell your information to third parties.</sub>
 	                <hr>
 	                <input type="hidden" name="submitted" id="submitted" value="true" />
-	                <!--<input type="button" name="previous" class="previous action-button" value="Previous" />-->
 	                <input id="dhg-validate-submit" data-for="submit" type="submit" name="submit" class="submit action-button" value="Submit" />
 
 	            </fieldset>
