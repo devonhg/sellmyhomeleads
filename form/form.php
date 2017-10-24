@@ -97,7 +97,7 @@ function sellmyhome_form( $emails, $social, $cust_email_body, $submit_message ){
 				$url = $headers["Host"];
 				ob_start();
 				?>
-					<strong>Thank you for choosing <?php echo get_bloginfo("name"); ?></strong>
+					<strong>Thank you for choosing <a href="<?php echo get_site_url() ?>"><?php echo get_bloginfo("name"); ?></a></strong>
 					<p><?php echo $cust_email_body; ?></p>
 					
 				<?
